@@ -15,12 +15,6 @@ button.addEventListener("click",function(){
 	//逆ポーランド記法
 	const rpn = createRpnArray(tree);
 
-/*
-	tokens.forEach(function(token){
-		console.log(token.type + ": " + token.data);
-	});
-*/
-
 	//命題変項を取り出す
 	const iterator = expression.matchAll(/[a-z]/g);
 	const variables = Array.from(iterator).flat(1);
@@ -34,51 +28,6 @@ button.addEventListener("click",function(){
 	const completeColumnList = calculateTruthValue(rpn,columnList);
 	//真理表の作成
 	createTruthTable(completeColumnList);
-/*
-	//命題変項の列を作成
-	createVariableColumn(cleanVariables,product);
-
-	const iterator2 = expression.matchAll(/¬[a-z]|[a-z]∧[a-z]|[a-z]∨[a-z]/g);
-	const compound = Array.from(iterator2).flat(1);
-	compound.forEach(function(value){
-		if(value.includes("¬")){
-			const index = cleanVariables.indexOf(value.charAt(1));
-			const column = [value];
-			product.forEach(function(line){
-				if(line[index] === 1){
-					column.push(0);
-				}else{
-					column.push(1);
-				}
-			});
-			createCompoundColumn(column);
-		}else if(value.includes("∧")){
-			const index1 = cleanVariables.indexOf(value.charAt(0));
-			const index2 = cleanVariables.indexOf(value.charAt(2));
-			const column = [value];
-			product.forEach(function(line){
-				if(line[index1]===1 && line[index2]===1){
-					column.push(1);
-				}else{
-					column.push(0);
-				}
-			});
-			createCompoundColumn(column);
-		}else if(value.includes("∨")){
-			const index1 = cleanVariables.indexOf(value.charAt(0));
-			const index2 = cleanVariables.indexOf(value.charAt(2));
-			const column = [value];
-			product.forEach(function(line){
-				if(line[index1]===1 || line[index2]===1){
-					column.push(1);
-				}else{
-					column.push(0);
-				}
-			});
-			createCompoundColumn(column);
-		}
-	});
-*/
 });
 
 //論理式をトークン列に分解する
@@ -234,24 +183,6 @@ function createTruthTable(columnList){
 		dataLine += `</tr>`;
 		truthTable.innerHTML += dataLine;
 	}
-/* 
-	for(let i=-1; i<data.length; i++){
-		if(i===-1){
-			header.forEach(function(variable){
-				line += `<th>${variable}</th>`;
-			});
-			line += `</tr>`;
-			truthTable.innerHTML = line;
-		}else{
-			let line = `<tr>`;
-			data[i].forEach(function(truthValue){
-				line += `<td>${truthValue}</td>`;
-			});
-			line += `</tr>`;
-			truthTable.innerHTML += line;
-		}
-	}
-*/
 	//CSSの有効化
 	truthTable.setAttribute("disabled","true");
 }
