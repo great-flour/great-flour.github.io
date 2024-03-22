@@ -1,5 +1,3 @@
-alert("テスト");
-
 //論理式の入力欄と表作成ボタンを取得
 const textbox = document.getElementById("expression");
 const button = document.getElementById("create");
@@ -10,6 +8,7 @@ const tableArea = document.getElementById("truthTableArea");
 
 //ボタン押下時の挙動
 button.addEventListener("click",function(){
+alert("テスト");
 	//論理式を取得
 	const expression = textbox.value;
 	//字句解析
