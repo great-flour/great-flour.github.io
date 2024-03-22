@@ -1,8 +1,10 @@
 //論理式の入力欄と表作成ボタンを取得
 const textbox = document.getElementById("expression");
 const button = document.getElementById("create");
-//真理表にするテーブルを取得
-const truthTable = document.getElementById("truthTable");
+//真理表にするテーブルを作成
+const truthTable = document.createElement("table");
+//テーブルを追加するdivを取得
+const tableArea = document.getElementById("truthTableArea");
 
 //ボタン押下時の挙動
 button.addEventListener("click",function(){
@@ -183,8 +185,8 @@ function createTruthTable(columnList){
 		dataLine += `</tr>`;
 		truthTable.innerHTML += dataLine;
 	}
-	//CSSの有効化
-	truthTable.setAttribute("disabled","true");
+	//テーブルの追加
+	tableArea.appendChild(truthTable);
 }
 
 /*直積を求める
