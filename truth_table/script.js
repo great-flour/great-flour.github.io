@@ -1,3 +1,5 @@
+alert("テスト");
+
 //論理式の入力欄と表作成ボタンを取得
 const textbox = document.getElementById("expression");
 const button = document.getElementById("create");
