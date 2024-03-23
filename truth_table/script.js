@@ -8,7 +8,7 @@ const tableArea = document.getElementById("truthTableArea");
 
 //ボタン押下時の挙動
 button.addEventListener("click",function(){
-alert("テスト");
+try{
 	//論理式を取得
 	const expression = textbox.value;
 	//字句解析
@@ -31,6 +31,9 @@ alert("テスト");
 	const completeColumnList = calculateTruthValue(rpn,columnList);
 	//真理表の作成
 	createTruthTable(completeColumnList);
+}catch(e){
+	alert(e.name + ": " + e.message + "\n" + e.stack);
+}
 });
 
 //論理式をトークン列に分解する
