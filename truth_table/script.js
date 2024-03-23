@@ -19,8 +19,7 @@ try{
 	const rpn = createRpnArray(tree);
 
 	//命題変項を取り出す
-	const iterator = expression.matchAll(/[a-z]/g);
-	const variables = Array.from(iterator).flat(1);
+	const variables = expression.match(/[a-z]/g);
 	//要素の重複をなくして真理値の組み合わせを求める
 	//アルファベット順にソート
 	const cleanVariables = Array.from(new Set(variables)).sort();
