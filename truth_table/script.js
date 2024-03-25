@@ -1,3 +1,17 @@
+class Test{
+	property;
+	constructor(value){
+		this.property = value;
+	}
+	getProperty(){
+		return this.property;
+	}
+}
+
+const test = new Test("test");
+alert(test.getProperty());
+alert(test.property);
+
 //論理式の入力欄と表作成ボタンを取得
 const textbox = document.getElementById("expression");
 const button = document.getElementById("create");
