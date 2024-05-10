@@ -1,5 +1,15 @@
-//論理式の入力欄と表作成ボタンを取得
+//論理式の入力欄を取得
 const textbox = document.getElementById("expression");
+
+//論理式入力用のキーボード押下時の挙動
+const keyboard = document.getElementById("keyboard");
+//各ボタン押下時の挙動をまとめて親要素のdivに登録するイベントハンドラで実装
+keyboard.addEventListener("click",function(e){
+	textbox.value += e.target.textContent;
+});
+
+
+//表作成ボタンを取得
 const button = document.getElementById("create");
 //真理表にするテーブルを作成
 const truthTable = document.createElement("table");
